@@ -83,6 +83,13 @@ test:
 #
 production:
   <<: *default
-  database: eb-rails-test_production
+  # database: eb-rails-test_production
   # username: eb-rails-test
   # password: <%= ENV['EB-RAILS-TEST_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
